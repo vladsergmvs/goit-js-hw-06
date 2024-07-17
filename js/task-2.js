@@ -1,9 +1,8 @@
 class Storage {
-  #items = [];
-   constructor(params) {
-    for (const iterator of params) {
-      this.#items.push(iterator);
-    }
+  #items;
+   constructor(startArray) {
+      this.#items = startArray;
+    
   }
   getItems() {
     return this.#items;
@@ -13,8 +12,7 @@ class Storage {
   
 }
   removeItem(itemToRemove) {
-    (this.#items.indexOf(itemToRemove) !== -1)? this.#items.splice(this.#items.indexOf(itemToRemove), 1) : this.#items;
-     
+    this.#items = this.#items.filter(item => item !== itemToRemove);
 }
 }
 
